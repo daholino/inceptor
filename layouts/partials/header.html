@@ -1,0 +1,9 @@
+<div class="nav-container flex-row">
+    <a href="/"><img class="index-icon" src="{{ .Site.Params.Icon }}" alt="Logo"></a>
+    <nav id="nav">
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}">{{ $text := print .Name | safeHTML }}{{ $text }}</a>
+        {{ end }}
+    </nav>
+</div>
+<div class="clear"></div>

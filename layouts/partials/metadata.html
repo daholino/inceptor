@@ -1,0 +1,15 @@
+{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+<div class="flex-row post-metadata">
+    <div class="post-time">
+        <i data-feather="clock" class="post-icon"></i>
+        <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+    </div>
+
+    <div class="post-tags">
+        {{ range .Params.tags }}
+        {{ $href := print (absURL "tags/") (urlize .) }}
+        <a class="" href="{{ $href }}">{{ . }}</a>
+        {{ end }}
+    </div>
+</div>

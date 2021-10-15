@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="single-post">
+<h1 class="post-title">{{ .Title }}</h1>
+<hr>
+{{ partial "metadata.html" . }}
+<div class="post-content">
+{{ .Content }}
+</div>
+{{ if not (eq .Site.DisqusShortname "")}}
+<div class="post-comments">
+<h2>Join the discussion</h2>
+{{ template "_internal/disqus.html" . }}
+</div>
+{{ end }}
+</div>
+{{ end }}

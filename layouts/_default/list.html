@@ -1,0 +1,50 @@
+{{ define "main" }}
+<h1 class="page-title">{{ .Title }}</h1>
+<div class="index-posts">
+{{ range (.Paginate (.Pages.ByPublishDate.Reverse)).Pages }}
+{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+<div class="recent-post">
+
+    <a href="{{ .Permalink }}">
+        <h2>{{ .Title }}</h2>
+    </a>
+
+    <hr>
+
+    <div class="flex-row">
+        <div class="recent-post-time">
+            <i data-feather="clock" class="recent-post-icon"></i>
+            <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+        </div>
+
+        <div class="recent-post-tags">
+            {{ range .Params.tags }}
+            {{ $href := print (absURL "tags/") (urlize .) }}
+            <a class="" href="{{ $href }}">{{ . }}</a>
+            {{ end }}
+        </div>
+    </div>
+
+    <div class="recent-post-summary">{{ .Summary }}</div>
+
+    <div class="flex-row bottom-metadata">
+        <div class="reading-time flex-center">
+            <i data-feather="book-open" class="recent-post-icon"></i> {{ math.Round (div (countwords .Content) 220.0) }}
+            minutes
+        </div>
+
+        <div class="read-more-container">
+            <a href="{{ .Permalink }}">
+                <div class="read-more">
+                    Read more <i data-feather="chevrons-right" class="read-more-icon"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+{{ end }}
+{{- partial "pagination.html" . -}}
+</div>
+{{ end }}

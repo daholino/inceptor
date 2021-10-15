@@ -1,0 +1,63 @@
+{{ define "main" }}
+
+<div class="index-text">
+    <div class="personal-container flex-row">
+        {{ if isset .Site.Params "personalimage" }}<img class="personal-image" src="{{ .Site.Params.PersonalImage }}" />{{ end }}
+        <h1 class="title index-title">{{ .Site.Params.indexMessage }}</h1>
+    </div>
+    <h3 class="index-description">{{ .Site.Params.indexDecription }}</h3>
+    <h3 class="index-description">{{ .Site.Params.indexAdditional }}</h3>
+    <div class="socials">
+        {{ range .Site.Params.Socials }}
+        <a href="{{ .link }}" target="_blank"><i data-feather="{{ .icon }}" class="social-icon"></i></a>
+        {{ end }}
+    </div>
+</div>
+
+<h4 class="recent-posts-title">Recent posts</h4>
+
+<div class="index-posts">
+{{ range ( where .Site.RegularPages "Type" "posts" | first 3 ) }}
+{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+<div class="recent-post">
+
+<a href="{{ .Permalink }}"><h2>{{ .Title }}</h2></a>
+
+<hr>
+
+<div class="flex-row">
+<div class="recent-post-time">
+    <i data-feather="clock" class="recent-post-icon"></i>
+    <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+</div>
+
+<div class="recent-post-tags">
+    {{ range .Params.tags }}
+    {{ $href := print (absURL "tags/") (urlize .) }}
+    <a class="" href="{{ $href }}">{{ . }}</a>
+    {{ end }}
+</div>
+</div>
+
+<div class="recent-post-summary">{{ .Summary }}</div>
+
+<div class="flex-row bottom-metadata">
+<div class="reading-time flex-center">
+<i data-feather="book-open" class="recent-post-icon"></i> {{ math.Round (div (countwords .Content) 220.0) }} minutes
+</div>
+
+<div class="read-more-container">
+<a href="{{ .Permalink }}">
+<div class="read-more">
+Read more <i data-feather="chevrons-right" class="read-more-icon"></i>
+</div>
+</a>
+</div>
+</div>
+
+</div>
+{{end}}
+</div>
+
+{{ end }}

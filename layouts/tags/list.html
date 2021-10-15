@@ -1,0 +1,12 @@
+{{ define "main" }}
+<h1 class="page-title">{{ .Title }}</h1>
+<div class="index-posts">
+    {{ range .Pages.ByPublishDate.Reverse }}
+    <div class="single-tag">
+        <a href="{{ .Permalink }}">
+            <h2>{{ .Title }}</h2>
+        </a>
+    </div>
+    {{ end }}
+</div>
+{{ end }}
