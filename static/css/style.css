@@ -362,13 +362,21 @@ blockquote span {
     padding: 14px 0;
 }
 
+.post-content li {
+    padding: 10px 0;
+}
+
+.post-content img {
+    width: 100%;
+}
+
 /* Syntax highlighting */
 
 .single-post pre {
     line-height: 24px;
-    background-color: #f1f1f1;
+    background-color: #f5f5f5;
     padding: 3%;
-    font-size: 17px;
+    font-size: 15px;
     overflow-x: scroll;
     letter-spacing: 0px;
 }
