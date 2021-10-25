@@ -25,8 +25,9 @@
 
     <div class="flex-row recent-post-bottom-metadata">
         <div class="reading-time flex-center">
-            <i data-feather="book-open" class="recent-post-icon"></i> {{ math.Round (div (countwords .Content) 220.0) }}
-            minutes
+            {{ $readingTime := math.Max 1 (math.Round (div (countwords .Content) 220.0)) }}
+            <i data-feather="book-open" class="recent-post-icon"></i> {{ $readingTime }}
+            minute{{ if gt $readingTime 1 }}s{{ end }}
         </div>
 
         <div class="recent-post-tags">
