@@ -1,5 +1,10 @@
 {{ define "main" }}
 <div class="single-post">
+{{ with .Params.featured_image }}
+<div class="post-featured-image">
+    <img src="{{ . }}">
+</div>
+{{ end }}
 <h1 class="post-title">{{ .Title }}</h1>
 <hr>
 {{ partial "metadata.html" . }}
