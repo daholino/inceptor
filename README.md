@@ -21,6 +21,7 @@ You can find the demo [here](https://tarikdahic.com).
 - Google Analytics support
 - Customizable
 - Dynamic social networks (links) on homepage
+- Cover images on posts
 
 ## Installation
 
@@ -79,6 +80,23 @@ noClasses = false
     name = "Tags"
     url = "/tags/"
  ```
+
+### Archetypes
+
+The theme ships with one `default.md` archetype. This is the contents of it:
+
+```yaml
+---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+draft: true
+tags: [] # add tags here like ["tag", "another-tag"]
+images: [] # the first image will be used for opengraph and twitter meta tags
+featured_image: "" # this image will be displayed as a thumbnail on post list and as a cover on post page
+---
+```
+
+You can use `hugo new posts/post-name.md` to generate a new post using these options but make sure that you don't override this archetype by the one from the root hugo folder.
 
 ## Roadmap
 

@@ -311,7 +311,7 @@ div.single-post a {
 }
 
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
-    padding: 16px 0;
+    padding: 8px 0;
 }
 
 .post-content h4, h5, h6 {
@@ -359,11 +359,11 @@ blockquote span {
 
 .post-content p, .post-content ul, .post-content ol {
     font-size: 17px;
-    padding: 14px 0;
+    padding: 6px 0;
 }
 
-.post-content li {
-    padding: 10px 0;
+.post-content li + li {
+    padding: 6px 0;
 }
 
 .post-content img {
@@ -389,6 +389,7 @@ blockquote span {
     font-size: 15px;
     overflow-x: scroll;
     letter-spacing: 0px;
+    margin: 5px 0;
 }
 
 code, pre {
