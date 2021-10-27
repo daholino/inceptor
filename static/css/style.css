@@ -318,6 +318,10 @@ div.single-post a {
     padding: 6px 0;
 }
 
+.post-content h5 {
+    font-size: 15px;
+}
+
 .post-content ul, .post-content ol {
     list-style-position: inside;
 }
@@ -394,6 +398,13 @@ blockquote span {
 
 code, pre {
     font-family: 'Oxygen Mono', monospace;
+}
+
+.single-post p > code {
+    background-color: #eee;
+    padding: 2px 4px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 pre::-webkit-scrollbar {
