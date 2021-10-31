@@ -142,7 +142,7 @@ img.index-icon {
 }
 
 .recent-post-time {
-    margin: 8px 0;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
 }
@@ -223,6 +223,14 @@ img.index-icon {
 
 .recent-post-bottom-metadata {
     margin-top: auto;
+}
+
+.post-summary {
+    margin: 8px 0;
+}
+
+.post-summary p {
+    color: #666;
 }
 
 /* Socials */
@@ -488,11 +496,15 @@ footer {
     }
 
     .recent-post h2 {
-        margin-top: 10px;
+        margin-top: 5px;
     }
 
     .recent-post .recent-post-text-content {
         margin-left: 0;
+    }
+
+    .recent-post-time {
+        margin-top: 8px;
     }
 }
 

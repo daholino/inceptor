@@ -2,44 +2,7 @@
 <h1 class="page-title">Tag: {{ .Title }}</h1>
 <div class="index-posts">
     {{ range .Pages.ByPublishDate.Reverse }}
-    {{ $dateTime := .PublishDate.Format "2006-01-02" }}
-    {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-    {{ $permalink := .Permalink }}
-    <div class="recent-post">
-
-        {{ with .Params.featured_image }}
-        <div class="post-featured-image">
-            <a href="{{ $permalink }}"><img src="{{ . }}"></a>
-        </div>
-        {{ end }}
-
-        <div class="recent-post-text-content">
-            <div class="recent-post-time">
-                <i data-feather="clock" class="recent-post-icon"></i>
-                <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
-            </div>
-
-            <a href="{{ $permalink }}">
-                <h2>{{ .Title }}</h2>
-            </a>
-
-            <div class="flex-row recent-post-bottom-metadata">
-                <div class="reading-time flex-center">
-                    {{ $readingTime := math.Max 1 (math.Round (div (countwords .Content) 220.0)) }}
-                    <i data-feather="book-open" class="recent-post-icon"></i> {{ $readingTime }}
-                    minute{{ if gt $readingTime 1 }}s{{ end }}
-                </div>
-
-                <div class="recent-post-tags">
-                    {{ range .Params.tags }}
-                    {{ $href := print (absURL "tags/") (urlize .) }}
-                    <a class="" href="{{ $href }}">{{ . }}</a>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
-
-    </div>
+    {{ partial "post-item.html" . }}
     {{ end }}
 </div>
 {{ end }}
