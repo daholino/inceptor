@@ -20,6 +20,10 @@
 {{ range ( where .Site.RegularPages "Type" "posts" | first 3 ) }}
 {{ partial "post-item.html" . }}
 {{end}}
+<div class="more-posts">
+    <a href="{{ .Site.BaseURL }}posts">More posts &#187;</a>
+    <div class="clear"></div>
+</div>
 </div>
 
 {{ end }}

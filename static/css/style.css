@@ -233,6 +233,19 @@ img.index-icon {
     color: #666;
 }
 
+.more-posts {
+    margin-top: 54px;
+}
+
+.more-posts a {
+    float: right;
+    font-size: 18px;
+}
+
+.more-posts a:hover {
+    opacity: 0.8;
+}
+
 /* Socials */
 
 .socials {
@@ -408,10 +421,9 @@ code, pre {
     font-family: 'Oxygen Mono', monospace;
 }
 
-.single-post p > code {
+.single-post p > code, .single-post li > code {
     background-color: #eee;
     padding: 2px 4px;
-    font-weight: bold;
     font-size: 14px;
 }
 
@@ -528,5 +540,9 @@ footer {
     div.personal-container {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .more-posts a {
+        float: left;
     }
 }
